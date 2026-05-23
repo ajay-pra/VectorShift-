@@ -4,6 +4,7 @@ import { useStore } from "../store";
 
 const BaseNode = ({ id, data, title, fields = [], handles = [], children }) => {
   const updateNodeField = useStore((state) => state.updateNodeField);
+  const deleteNode = useStore((state) => state.deleteNode);
 
   return (
     <div
@@ -23,7 +24,7 @@ const BaseNode = ({ id, data, title, fields = [], handles = [], children }) => {
       }}
     >
       <div>
-        <div
+        {/* <div
           style={{
             fontWeight: "bold",
             borderBottom: "1px solid #ccc",
@@ -32,6 +33,35 @@ const BaseNode = ({ id, data, title, fields = [], handles = [], children }) => {
           }}
         >
           {title}
+        </div> */}
+
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          fontWeight: 'bold',
+          borderBottom: '1px solid #ccc',
+          paddingBottom: '3px',
+          marginBottom: '5px'
+        }}>
+          <span>{title}</span>
+          <button
+            onClick={() => deleteNode(id)}
+            style={{
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '14px',
+              fontWeight: 'bold',
+              color: '#888',
+              padding: '0',
+              margin: '0',
+              lineHeight: '1',
+            }}
+            title="Delete Node"
+          >
+            &times;
+          </button>
         </div>
 
         {fields.map((field) => {
