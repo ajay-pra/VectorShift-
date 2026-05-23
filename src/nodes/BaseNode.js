@@ -2,14 +2,14 @@ import React from "react";
 import { Handle } from "reactflow";
 import { useStore } from "../store";
 import "../style/BaseNode.css";
-const BaseNode = ({ id, data, title, fields = [], handles = [], children }) => {
+const BaseNode = ({ id, data, title, fields = [], handles = [], children,style }) => {
   const updateNodeField = useStore((state) => state.updateNodeField);
   const deleteNode = useStore((state) => state.deleteNode);
 
   return (
-    <div className="custom-node">
-      <div>
-        <div className="node-header">
+    <div className="custom-node" style={{ display: style?.height ? 'flex' : 'block', flexDirection: 'column', ...style }}>
+      <div style={{ height: style?.height ? '100%' : 'auto', display: style?.height ? 'flex' : 'block', flexDirection: 'column', flexGrow: 1 }}>
+       <div className="node-header">
           <span className="node-title">{title}</span>
           <button
             onClick={() => deleteNode(id)}
