@@ -11,6 +11,11 @@ export const PipelineToolbar = () => {
                 <DraggableNode type='llm' label='LLM' />
                 <DraggableNode type='customOutput' label='Output' />
                 <DraggableNode type='text' label='Text' />
+                <DraggableNode type='APIResponse' label='APIResponse' />
+                <DraggableNode type='APIRequest' label='APIRequest' />
+                <DraggableNode type='DBNode' label='DBNode' />
+                <DraggableNode type='FilterNode' label='FilterNode' />
+                <DraggableNode type='EmailNode' label='EmailNode' />
             </div>
         </div>
     );
