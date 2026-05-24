@@ -6,12 +6,6 @@ import { Position } from 'reactflow';
 export const OutputNode = ({ id, data }) => {
   const fields = [
     {
-      type: 'text',
-      name: 'outputName',
-      label: 'Name',
-      defaultValue: data?.outputName || id.replace('customOutput-', 'output_')
-    },
-    {
       type: 'select',
       name: 'outputType',
       label: 'Type',

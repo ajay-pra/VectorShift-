@@ -22,6 +22,16 @@ const BaseNode = ({ id, data, title, fields = [], handles = [], children,style }
 
         <div className="node-body">
           {" "}
+          <div className="node-field">
+            <label className="node-label">Name</label>
+            <input
+              type="text"
+              value={data?.name !== undefined ? data.name : (id.startsWith('customInput-') ? id.replace('customInput-', 'input_') : (id.startsWith('customOutput-') ? id.replace('customOutput-', 'output_') : id)).replace(/-/g, '_')}
+              onChange={(e) => updateNodeField(id, 'name', e.target.value)}
+              className="node-input"
+            />
+          </div>
+
           {fields.map((field) => {
             const value =
               data?.[field.name] !== undefined
